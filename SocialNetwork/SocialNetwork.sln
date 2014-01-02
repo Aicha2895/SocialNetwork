@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetworkLogic", "SocialNetwork\SocialNetworkLogic.csproj", "{1CC56928-3937-4E28-ADB7-E6C453A450A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetworkWeb", "SocialNetworkWeb\SocialNetworkWeb.csproj", "{E7CD4C8A-88AE-4061-A4D1-D5490E3C2640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetworkDataAccess", "SocialNetworkDataAccess\SocialNetworkDataAccess.csproj", "{B74CEC94-7FA9-4A85-A589-48A7F1821A1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CC56928-3937-4E28-ADB7-E6C453A450A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC56928-3937-4E28-ADB7-E6C453A450A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC56928-3937-4E28-ADB7-E6C453A450A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC56928-3937-4E28-ADB7-E6C453A450A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7CD4C8A-88AE-4061-A4D1-D5490E3C2640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7CD4C8A-88AE-4061-A4D1-D5490E3C2640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7CD4C8A-88AE-4061-A4D1-D5490E3C2640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7CD4C8A-88AE-4061-A4D1-D5490E3C2640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74CEC94-7FA9-4A85-A589-48A7F1821A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74CEC94-7FA9-4A85-A589-48A7F1821A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74CEC94-7FA9-4A85-A589-48A7F1821A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74CEC94-7FA9-4A85-A589-48A7F1821A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

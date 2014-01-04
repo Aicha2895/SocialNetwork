@@ -1,0 +1,16 @@
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\SocialNetworkWeb.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\SocialNetworkWeb.pdb
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\obj\Debug\SocialNetworkWeb.csprojResolveAssemblyReference.cache
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\obj\Debug\SocialNetworkWeb.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\obj\Debug\SocialNetworkWeb.pdb
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\SocialNetwork.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\SocialNetworkDataAccess.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\SocialNetwork.pdb
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\SocialNetworkDataAccess.pdb
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\EntityFramework.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\EntityFramework.SqlServer.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\EntityFramework.SqlServerCompact.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\System.Data.SqlServerCe.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\EntityFramework.xml
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\EntityFramework.SqlServer.xml
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetworkWeb\bin\EntityFramework.SqlServerCompact.xml

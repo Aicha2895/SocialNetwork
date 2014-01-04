@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="DataBaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Messages" EntityType="DataBaseModel.Message" />
+    <EntitySet Name="Photos" EntityType="DataBaseModel.Photo" />
+    <EntitySet Name="Users" EntityType="DataBaseModel.User" />
+    <EntitySet Name="Posts" EntityType="DataBaseModel.Post" />
+    <AssociationSet Name="UserFeedPost" Association="DataBaseModel.UserPost">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Post" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="UserSentPost" Association="DataBaseModel.UserPost1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Post" EntitySet="Posts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="FkFromUserId" Nullable="false" />
+    <Property Type="Int32" Name="FkToUserId" Nullable="false" />
+    <Property Type="String" Name="MessageText" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="SentDate" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="FkUserId" Nullable="false" />
+    <Property Type="Int32" Name="Description" />
+    <Property Type="DateTime" Name="UploadedDate" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Surname" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Activities" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateOfBirth" />
+    <Property Type="String" Name="PhoneNumbers" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsMale" />
+    <NavigationProperty Name="FeedPosts" Relationship="DataBaseModel.UserPost" FromRole="User" ToRole="Post" />
+    <NavigationProperty Name="SentPosts" Relationship="DataBaseModel.UserPost1" FromRole="User" ToRole="Post" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="FkUserId" Nullable="false" />
+    <Property Type="Int32" Name="FkFromUserId" Nullable="false" />
+    <Property Type="String" Name="PostText" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="DataBaseModel.UserPost" FromRole="Post" ToRole="User" />
+    <NavigationProperty Name="FromUser" Relationship="DataBaseModel.UserPost1" FromRole="Post" ToRole="User" />
+  </EntityType>
+  <Association Name="UserPost">
+    <End Type="DataBaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="DataBaseModel.Post" Role="Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="FkUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserPost1">
+    <End Type="DataBaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="DataBaseModel.Post" Role="Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="FkFromUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,8 @@
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetwork\bin\Debug\SocialNetwork.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetwork\bin\Debug\SocialNetwork.pdb
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetwork\obj\Debug\SocialNetwork.pdb
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetwork\bin\Debug\DataBase.sdf
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetwork\bin\Debug\SocialNetworkDataAccess.dll
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetwork\bin\Debug\SocialNetworkDataAccess.pdb
+D:\UladzimirPoddubny\SocialNetwork\SocialNetwork\SocialNetwork\SocialNetwork\obj\Debug\SocialNetworkLogic.csprojResolveAssemblyReference.cache

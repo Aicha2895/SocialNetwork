@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataBaseModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DataBaseModelStoreContainer">
+    <EntitySet Name="Messages" EntityType="DataBaseModel.Store.Messages" store:Type="Tables" />
+    <EntitySet Name="Photos" EntityType="DataBaseModel.Store.Photos" store:Type="Tables" />
+    <EntitySet Name="Posts" EntityType="DataBaseModel.Store.Posts" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="DataBaseModel.Store.Users" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FkFromUserId" Type="int" Nullable="false" />
+    <Property Name="FkToUserId" Type="int" Nullable="false" />
+    <Property Name="MessageText" Type="nvarchar" />
+    <Property Name="SentDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FkUserId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="int" />
+    <Property Name="UploadedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FkUserId" Type="int" Nullable="false" />
+    <Property Name="FkFromUserId" Type="int" Nullable="false" />
+    <Property Name="PostText" Type="nvarchar" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" />
+    <Property Name="Activities" Type="nvarchar" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="PhoneNumbers" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsMale" Type="bit" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataBaseModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DataBaseModelStoreContainer">
+          <EntitySet Name="Messages" EntityType="DataBaseModel.Store.Messages" store:Type="Tables" />
+          <EntitySet Name="Photos" EntityType="DataBaseModel.Store.Photos" store:Type="Tables" />
+          <EntitySet Name="Posts" EntityType="DataBaseModel.Store.Posts" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="DataBaseModel.Store.Users" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FkFromUserId" Type="int" Nullable="false" />
+          <Property Name="FkToUserId" Type="int" Nullable="false" />
+          <Property Name="MessageText" Type="nvarchar" />
+          <Property Name="SentDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FkUserId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="int" />
+          <Property Name="UploadedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FkUserId" Type="int" Nullable="false" />
+          <Property Name="FkFromUserId" Type="int" Nullable="false" />
+          <Property Name="PostText" Type="nvarchar" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" />
+          <Property Name="Activities" Type="nvarchar" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="PhoneNumbers" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsMale" Type="bit" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataBaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Messages" EntityType="DataBaseModel.Message" />
+          <EntitySet Name="Photos" EntityType="DataBaseModel.Photo" />
+          <EntitySet Name="Users" EntityType="DataBaseModel.User" />
+          <EntitySet Name="Posts" EntityType="DataBaseModel.Post" />
+          <AssociationSet Name="UserFeedPost" Association="DataBaseModel.UserPost">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="UserSentPost" Association="DataBaseModel.UserPost1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="FkFromUserId" Nullable="false" />
+          <Property Type="Int32" Name="FkToUserId" Nullable="false" />
+          <Property Type="String" Name="MessageText" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="SentDate" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="FkUserId" Nullable="false" />
+          <Property Type="Int32" Name="Description" />
+          <Property Type="DateTime" Name="UploadedDate" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Surname" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Activities" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DateOfBirth" />
+          <Property Type="String" Name="PhoneNumbers" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsMale" />
+          <NavigationProperty Name="FeedPosts" Relationship="DataBaseModel.UserPost" FromRole="User" ToRole="Post" />
+          <NavigationProperty Name="SentPosts" Relationship="DataBaseModel.UserPost1" FromRole="User" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="FkUserId" Nullable="false" />
+          <Property Type="Int32" Name="FkFromUserId" Nullable="false" />
+          <Property Type="String" Name="PostText" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="DataBaseModel.UserPost" FromRole="Post" ToRole="User" />
+          <NavigationProperty Name="FromUser" Relationship="DataBaseModel.UserPost1" FromRole="Post" ToRole="User" />
+        </EntityType>
+        <Association Name="UserPost">
+          <End Type="DataBaseModel.User" Role="User" Multiplicity="1" />
+          <End Type="DataBaseModel.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="FkUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserPost1">
+          <End Type="DataBaseModel.User" Role="User" Multiplicity="1" />
+          <End Type="DataBaseModel.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="FkFromUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataBaseModelStoreContainer" CdmEntityContainer="DataBaseEntities">
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="DataBaseModel.Message">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="MessageText" ColumnName="MessageText" />
+                <ScalarProperty Name="FkToUserId" ColumnName="FkToUserId" />
+                <ScalarProperty Name="FkFromUserId" ColumnName="FkFromUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="DataBaseModel.Photo">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="UploadedDate" ColumnName="UploadedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FkUserId" ColumnName="FkUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DataBaseModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IsMale" ColumnName="IsMale" />
+                <ScalarProperty Name="PhoneNumbers" ColumnName="PhoneNumbers" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Activities" ColumnName="Activities" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="DataBaseModel.Post">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="PostText" ColumnName="PostText" />
+                <ScalarProperty Name="FkFromUserId" ColumnName="FkFromUserId" />
+                <ScalarProperty Name="FkUserId" ColumnName="FkUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DBModel">
+        <EntityTypeShape EntityType="DataBaseModel.Message" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="DataBaseModel.Photo" Width="1.5" PointX="2.75" PointY="0.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="DataBaseModel.User" Width="1.5" PointX="0.75" PointY="3.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="DataBaseModel.Post" Width="1.5" PointX="3.375" PointY="3.75" Height="1.9802864583333317" />
+        <AssociationConnector Association="DataBaseModel.UserPost">
+          <ConnectorPoint PointX="2.25" PointY="4.8362939453125" />
+          <ConnectorPoint PointX="3.375" PointY="4.8362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="DataBaseModel.UserPost1">
+          <ConnectorPoint PointX="2.25" PointY="4.4301340738932291" />
+          <ConnectorPoint PointX="3.375" PointY="4.4301340738932291" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
